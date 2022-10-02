@@ -1,0 +1,38 @@
+.card {
+  min-width: 250px;
+  flex: 1;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1px dashed #eee;
+  padding: 2rem;
+  transition: all .6s ease;
+}
+
+.card--fav .card__title {
+  background-color: var(--color-primary);
+}
+
+.card:hover {
+  background-color: #fff;
+  box-shadow: 0px 32px 42px rgb(0 0 0 / 10%);
+}
+
+.card__title {
+  margin: -2rem -2rem 2rem;
+  padding: 2rem;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card__img {
+  height: 300px;
+  width: 100%;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+.card__buttons {
+  display: flex;
+  gap: 0.5rem;
+}
