@@ -1,0 +1,23 @@
+.footer {
+  background-color: #eee;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.footer__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer__content img {
+  max-height: 100%;
+}
+
+.footer__github-link {
+  height: 40px;
+}
+
+.footer__rsschool-link {
+  width: 100px;
+}

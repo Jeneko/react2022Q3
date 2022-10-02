@@ -1,0 +1,33 @@
+.header {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem 0;
+  background-color: #eeeeeea8;
+  border-bottom: 1px solid #eee;
+  backdrop-filter: blur(17px);
+}
+
+.header a {
+  color: black;
+  padding: 0.5rem;
+  text-decoration: none;
+  border-radius: 3px;
+}
+
+.header a:not(:last-child) {
+  margin-right: 0.25rem;
+}
+
+.header a:hover {
+  color: white;
+  background-color: #999;
+}
+
+.header .active {
+  pointer-events: none;
+  color: white;
+  background-color: var(--color-primary);
+}
