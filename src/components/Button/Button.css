@@ -1,0 +1,65 @@
+.btn {
+  min-height: 31px;
+  min-width: 31px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  padding: 0;
+  border-radius: 3px;
+  overflow: hidden;
+  font-weight: bold;
+  border: none;
+}
+
+.btn--default {
+  color: black;
+  background-color: #f0f0f0;
+}
+
+.btn--transparent {
+  color: black;
+  background: none;
+  border: 1px solid #f0f0f0;
+}
+
+.btn--primary {
+  color: white;
+  background-color: var(--color-primary);
+}
+
+.btn--secondary {
+  color: black;
+  background-color: var(--color-secondary);
+}
+
+.btn__text {
+  padding: 0.5rem;
+}
+
+.btn__value {
+  color: white;
+  background-color: #555;
+  padding: 0.5rem;
+}
+
+.btn__like-icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin: 0 0.5rem;
+  background: url(heart-icon.svg) center no-repeat;
+  margin-right: 0.25rem;
+}
+
+.btn__fav-icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin: 0 0.5rem;
+  background: url(star-icon.svg) center no-repeat;
+}
+
+.btn--selected {
+  background-color: #555;
+}
