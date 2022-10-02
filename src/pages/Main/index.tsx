@@ -1,4 +1,5 @@
 import React from 'react';
+import { CardsList } from 'components/CardList';
 import { PageHeading } from 'components/PageHeading';
 import { Search } from 'components/Search';
 
@@ -10,7 +11,7 @@ function MainPage() {
       </div>
       <Search />
       <div className="container">
-        <h2>Card List</h2>
+        <CardsList />
       </div>
     </div>
   );
