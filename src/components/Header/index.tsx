@@ -10,6 +10,7 @@ function Header() {
           Main
         </NavLink>
         <NavLink to="/about">About</NavLink>
+        <NavLink to="/form">Form</NavLink>
       </div>
     </header>
   );
