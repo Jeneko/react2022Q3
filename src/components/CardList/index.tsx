@@ -23,11 +23,11 @@ class CardsList extends React.Component<object, CardsListState> {
 
     return (
       <>
-        <ul className="card-list">
+        <div className="card-list">
           {products.map((product) => (
             <Card {...product} key={product.id} />
           ))}
-        </ul>
+        </div>
         {!products.length && <Spinner />}
       </>
     );
