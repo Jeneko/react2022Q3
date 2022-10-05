@@ -1,0 +1,28 @@
+.form-card {
+  text-align: center;
+  min-width: 250px;
+  padding: 2rem;
+  flex: 1;
+  overflow: hidden;
+  box-sizing: border-box;
+  border: 1px dashed #eee;
+  transition: all .6s ease;
+}
+
+.form-card:hover {
+  background-color: #fff;
+  box-shadow: 0px 32px 42px rgb(0 0 0 / 10%);
+}
+
+.form-card__name {
+  margin: 0;
+}
+
+.form-card__picture {
+  margin: 1rem 0;
+  max-width: 100%;
+  object-fit: cover;
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+}
