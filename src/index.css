@@ -1,6 +1,13 @@
 :root {
   --color-primary: #ff9b2c;
+  --color-primary-hover: #ffbc2c;
   --color-secondary: #00fffb;
+  --color-success: #009305;
+  --color-success-bg: #f9fff1;
+  --color-error: #ff004c;
+  --color-error-bg: #fff8fa;
+  --color-male: #1761ff;
+  --color-female: #fc1978;
 }
 
 body {
@@ -10,6 +17,20 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+input,
+select,
+textarea {
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  border-radius: 3px;
+}
+
+input[type="file"] {
+  padding: 0;
+  border: none;
 }
 
 main {

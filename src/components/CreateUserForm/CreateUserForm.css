@@ -1,0 +1,143 @@
+.card-form {
+  display: inline-block;
+  padding: 2rem 2rem 1rem;
+  border: 1px dashed #eee;
+}
+
+.card-form__heading {
+  margin: 0 0 1rem;
+}
+
+.card-form__control {
+  position: relative;
+  max-width: 250px;
+  margin-bottom: 1.5rem;
+}
+
+.card-form__control--no-error {
+  margin-bottom: 1rem;
+}
+
+.card-form__label {
+  display: inline-block;
+  margin-bottom: 0.25rem;
+  color: var(--color-primary);
+}
+
+.card-form__label--checkbox {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.25rem;
+  margin-bottom: 0;
+}
+
+.card-form__input {
+  display: block;
+  width: 100%;
+}
+
+.card-form__select {
+  display: block;
+  width: 100%;
+}
+
+.card-form__error {
+  position: absolute;
+  top: calc(100% + 2px);
+  left: 0;
+  right: 0;
+  padding: 0.2rem 0.5rem;
+  color: var(--color-error);
+  font-size: 0.75rem;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-error-bg);
+  border-radius: 3px;
+}
+
+.card-form__toggle-checkbox {
+  display: none;
+}
+
+.card-form__toggle-checkbox:checked+.card-form__toggle {
+  background-color: var(--color-female) !important;
+}
+
+.card-form__toggle-checkbox:checked+.card-form__toggle::before {
+  left: calc(100% - 22px);
+}
+
+.card-form__toggle {
+  user-select: none;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  width: 48px;
+  height: 24px;
+  margin: 0 0.5rem;
+  background-color: var(--color-male);
+  border-radius: 12px;
+  transition: all 0.3s ease-in-out;
+}
+
+.card-form__toggle::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  bottom: 2px;
+  width: 20px;
+  background-color: white;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.card-form__submit {
+  display: block;
+  width: 100%;
+  max-width: 250px;
+  cursor: pointer;
+  position: relative;
+  padding: 0.5rem 1rem;
+  border-radius: 3px;
+  font-weight: bold;
+  border: none;
+  color: white;
+  background-color: var(--color-primary);
+  transition: all 0.3s ease;
+}
+
+.card-form__submit:disabled {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.5;
+}
+
+.card-form__submit:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.card-form__success {
+  position: absolute;
+  top: calc(100% + 2px);
+  left: 0;
+  right: 0;
+  padding: 0.2rem 0.5rem;
+  color: var(--color-success);
+  font-size: 0.75rem;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-success-bg);
+  border-radius: 3px;
+}
+
+@media (max-width: 991px) {
+  .card-form {
+    display: block;
+  }
+  .card-form__control {
+    max-width: 100%;
+  }
+}
