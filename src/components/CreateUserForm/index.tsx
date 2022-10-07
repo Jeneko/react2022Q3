@@ -96,10 +96,9 @@ class CreateUserForm extends React.Component<CreateUserFormProps, CreateUserForm
     e.preventDefault();
 
     if (this.validateForm()) {
-      const picture =
-        this.inputPicture.current && this.inputPicture.current.files
-          ? URL.createObjectURL(this.inputPicture.current.files[0])
-          : '';
+      const inputPicture = this.inputPicture.current as HTMLInputElement;
+      const pictureFile = (inputPicture.files as FileList)[0];
+      const picture = URL.createObjectURL(pictureFile);
 
       const card: UserCardProps = {
         sex: (this.inputSex.current as HTMLInputElement).checked,
