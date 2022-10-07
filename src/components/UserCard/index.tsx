@@ -11,7 +11,7 @@ export interface UserCardProps {
 
 function UserCard(card: UserCardProps) {
   return (
-    <article className="form-card">
+    <article className="form-card" data-testid="user-card">
       <h2 className="form-card__name">{card.name}</h2>
       <img className="form-card__picture" src={card.picture} title={card.name} />
       <div className="form-card__birthday">

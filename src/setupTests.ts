@@ -48,3 +48,5 @@ class LocalStorageMock {
 }
 
 global.localStorage = new LocalStorageMock();
+
+global.URL.createObjectURL = jest.fn();

@@ -76,7 +76,7 @@ class CreateUserForm extends React.Component<CreateUserFormProps, CreateUserForm
       newState.errorsQty += 1;
     }
 
-    if (this.inputPicture.current && this.inputPicture.current.value === '') {
+    if (this.inputPicture.current && !this.inputPicture.current.files?.length) {
       newState.error.picture = ErrorText.Picture;
       newState.errorsQty += 1;
     }
@@ -127,7 +127,12 @@ class CreateUserForm extends React.Component<CreateUserFormProps, CreateUserForm
 
   render() {
     return (
-      <form onChange={this.handleChange} onSubmit={this.handleSubmit} className="card-form">
+      <form
+        onChange={this.handleChange}
+        onSubmit={this.handleSubmit}
+        className="card-form"
+        data-testid="create-user-form"
+      >
         <h2 className="card-form__heading">Create New&nbsp;User</h2>
         <div className="card-form__control">
           <label className="card-form__label" htmlFor="card-form-name">
@@ -203,6 +208,7 @@ class CreateUserForm extends React.Component<CreateUserFormProps, CreateUserForm
               ref={this.inputSex}
               id="card-form-sex"
               className="card-form__toggle-checkbox"
+              data-testid="sex-checkbox"
             />
             <span className="card-form__toggle"></span>
           </label>
@@ -215,6 +221,7 @@ class CreateUserForm extends React.Component<CreateUserFormProps, CreateUserForm
               name="agree"
               ref={this.checkboxAgree}
               className="card-form__checkbox"
+              data-testid="agree-checkbox"
             />
             I agree&nbsp;to the&nbsp;terms
           </label>
@@ -223,7 +230,11 @@ class CreateUserForm extends React.Component<CreateUserFormProps, CreateUserForm
           )}
         </div>
         <div className="card-form__control">
-          <button className="card-form__submit" disabled={this.state.submitDisabled}>
+          <button
+            className="card-form__submit"
+            disabled={this.state.submitDisabled}
+            data-testid="submit-button"
+          >
             Submit
           </button>
           {this.state.showSuccess && (

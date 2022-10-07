@@ -22,7 +22,7 @@ class FormPage extends React.Component<object, FormPageState> {
 
   render() {
     return (
-      <div className="form-page container">
+      <div className="form-page container" data-testid="form-page">
         <PageHeading>Form Page</PageHeading>
         <div className="form-page__content">
           <div className="form-page__form">
