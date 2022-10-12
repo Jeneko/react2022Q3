@@ -2,19 +2,27 @@
   z-index: 10;
   position: fixed;
   top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+.spinner__circle {
+  animation: spin 3s infinite;
+}
+
 .spinner__content {
   padding: 2rem 3rem;
   color: #fff;
-  background-color: rgb(40, 44, 52);
+  background-color: rgba(40, 44, 52, 0.9);
   text-align: center;
   border-radius: 6px;
   box-shadow: -1px 16px 30px 0 rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   animation: show 0.5s ease-out forwards;
 }
 
@@ -22,11 +30,22 @@
   margin-top: 0.5rem;
 }
 
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @keyframes show {
   from {
     opacity: 0;
     transform: translateY(-10px);
   }
+
   to {
     opacity: 100;
     transform: translateY(0px);
