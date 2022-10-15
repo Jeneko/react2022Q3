@@ -1,7 +1,7 @@
-const API_URL = 'https://www.flickr.com/services/rest/';
-const RES_URL = 'https://live.staticflickr.com';
-const API_KEY = '103748fb7aab53c9a957a632d5c8cb12';
-const PER_PAGE = '15';
+export const API_URL = 'https://www.flickr.com/services/rest/';
+export const RES_URL = 'https://live.staticflickr.com';
+export const API_KEY = '103748fb7aab53c9a957a632d5c8cb12';
+export const PER_PAGE = '15';
 
 export enum APIMethods {
   search = 'flickr.photos.search',
@@ -63,5 +63,6 @@ export async function flickrPhotoSearch(searchText: string): Promise<FlickrPhoto
 
   const response = await fetch(url);
   const data = (await response.json()) as FlickrPhotosResponse;
+
   return data.photos.photo;
 }
