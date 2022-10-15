@@ -1,0 +1,42 @@
+.flickr-full-info {
+  flex-wrap: wrap;
+}
+
+.flickr-full-info__title {
+  margin: 0;
+  margin-bottom: 1.5rem;
+}
+
+.flickr-full-info__img {
+  max-width: 100%;
+}
+
+.flickr-full-info__desc {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.flickr-full-info__addition {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  position: absolute;
+  right: 2rem;
+  left: 2rem;
+  bottom: 0.75rem;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 575px) {
+  .flickr-full-info__addition {
+    position: static;
+  }
+}
+
+/* Dirty hack to make title and desc width size of image */
+.flickr-full-info__title,
+.flickr-full-info__desc {
+  overflow: hidden;
+  min-width: 100%;
+  max-width: 0;
+}
