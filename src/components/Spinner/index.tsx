@@ -6,7 +6,7 @@ function Spinner() {
   return (
     <div className="spinner">
       <div className="spinner__content">
-        <img className="spinner__circle" src={spinnerUrl} title="" />
+        <img className="spinner__circle" src={spinnerUrl} width="132" height="132" title="" />
         <div className="spinner__text">Loading...</div>
       </div>
     </div>
