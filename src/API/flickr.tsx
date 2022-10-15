@@ -32,9 +32,9 @@ export interface FlickrPhotos {
 export interface FlickrPhoto {
   farm: number;
   id: string;
-  isFamily: 0 | 1;
-  isFriend: 0 | 1;
-  isPublic: 0 | 1;
+  isfamily: 0 | 1;
+  isfriend: 0 | 1;
+  ispublic: 0 | 1;
   owner: string;
   secret: string;
   server: string;
