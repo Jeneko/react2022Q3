@@ -25,6 +25,7 @@ class FlickrCard extends React.Component<FlickrCardProps> {
             src={imgUrl}
             alt={title}
             onClick={() => this.props.onShowMore(id)}
+            data-testid="flickr-card__img"
           />
         </div>
 

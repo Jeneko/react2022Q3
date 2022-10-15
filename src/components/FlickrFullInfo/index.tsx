@@ -19,20 +19,21 @@ class FlickrFullInfo extends React.Component<FlickrPhoto> {
           <div
             className="flickr-full-info__desc"
             dangerouslySetInnerHTML={{ __html: content }}
+            data-testid="desc"
           ></div>
         )}
 
         {(owner || date) && (
           <div className="flickr-full-info__addition">
             {owner && (
-              <div className="flickr-full-info__owner">
+              <div className="flickr-full-info__owner" data-testid="owner">
                 <b>Owner: </b>
                 <span>{owner}</span>
               </div>
             )}
 
             {date && (
-              <div className="flickr-full-info__date">
+              <div className="flickr-full-info__date" data-testid="date">
                 <b>Uploaded: </b>
                 <span>{date.toLocaleDateString()}</span>
               </div>
