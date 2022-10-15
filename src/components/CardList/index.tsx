@@ -1,35 +1,23 @@
 import React from 'react';
-import { Card, ProductProps } from '../Card';
-import { Spinner } from '../Spinner';
-import json from 'data/products.json';
+import { FlickrCard } from '../FlickrCard';
+import { FlickrPhoto } from 'API/flickr';
 import './CardList.css';
 
-interface CardsListState {
-  products: ProductProps[];
+interface CardsListProps {
+  cards: FlickrPhoto[];
+  onShowMore: (id: string) => void;
 }
 
-class CardsList extends React.Component<object, CardsListState> {
-  constructor(props: object) {
-    super(props);
-    this.state = { products: [] };
-  }
-
-  componentDidMount(): void {
-    this.setState({ products: json });
-  }
-
+class CardsList extends React.Component<CardsListProps> {
   render() {
-    const products = this.state.products;
+    const photos = this.props.cards;
 
     return (
-      <>
-        <div className="card-list">
-          {products.map((product) => (
-            <Card {...product} key={product.id} />
-          ))}
-        </div>
-        {!products.length && <Spinner />}
-      </>
+      <div className="card-list">
+        {photos.map((photo) => (
+          <FlickrCard {...photo} key={photo.id} onShowMore={this.props.onShowMore} />
+        ))}
+      </div>
     );
   }
 }
