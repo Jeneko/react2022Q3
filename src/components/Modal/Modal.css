@@ -1,0 +1,71 @@
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 5;
+}
+
+.modal__backdrop {
+  position: absolute;
+  z-index: 6;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.modal__close {
+  cursor: pointer;
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 30px;
+  height: 30px;
+  background-color: #999;
+  border: none;
+  border-radius: 50%;
+}
+
+.modal__close img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.modal__close:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.modal__container {
+  position: relative;
+  z-index: 7;
+  margin: 2rem;
+  border-radius: 4px;
+  background-color: #ffffff;
+  box-shadow: 0 30px 100px rgb(0 0 0 / 50%);
+  animation: slide-in 0.5s ease;
+}
+
+.modal__content {
+  max-height: calc(100vh - 170px);
+  margin: 2rem 0rem;
+  padding: 0rem 2rem;
+  overflow-y: auto;
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
