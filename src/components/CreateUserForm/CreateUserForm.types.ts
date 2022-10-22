@@ -1,5 +1,11 @@
 import { UserCardProps } from 'components/UserCard';
 
+export enum Region {
+  usa = 'USA',
+  europe = 'Europe',
+  asia = 'Asia',
+}
+
 export enum ErrorText {
   Name = 'Name must be 2 or more characters',
   Date = 'Please, pick your birthday',
@@ -21,4 +27,13 @@ export interface CreateUserFormState {
   showSuccess: boolean;
   errorsQty: number;
   error: { [k: string]: string };
+}
+
+export interface FormInput {
+  name: string;
+  date: string;
+  region: Region;
+  picture: FileList;
+  sex: boolean;
+  agree: boolean;
 }
