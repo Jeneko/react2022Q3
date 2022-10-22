@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, ButtonType, ButtonIcon } from 'components/Button';
 import './Card.css';
 
@@ -11,65 +11,50 @@ export interface ProductProps {
   image: string;
 }
 
-export interface ProductState {
-  like: number;
-  fav: boolean;
-}
+function Card(props: ProductProps) {
+  const [like, setLike] = useState(0);
+  const [fav, setFav] = useState(false);
 
-class Card extends React.Component<ProductProps, ProductState> {
-  constructor(props: ProductProps) {
-    super(props);
-    this.state = { like: 0, fav: false };
-    this.handleLike = this.handleLike.bind(this);
-    this.handleFav = this.handleFav.bind(this);
+  function handleLike() {
+    setLike(like + 1);
   }
 
-  handleLike() {
-    this.setState((state) => ({
-      like: state.like + 1,
-    }));
+  function handleFav() {
+    setFav(!fav);
   }
 
-  handleFav() {
-    this.setState((state) => ({
-      fav: !state.fav,
-    }));
+  let cardClass = 'card';
+
+  if (fav) {
+    cardClass += ' card--fav';
   }
 
-  render() {
-    let cardClass = 'card';
-
-    if (this.state.fav) {
-      cardClass += ' card--fav';
-    }
-
-    return (
-      <article className={cardClass}>
-        <h3 className="card__title" title={this.props.title}>
-          {this.props.title}
-        </h3>
-        <img className="card__img" src={this.props.image} alt={this.props.title} />
-        <div className="card__buttons">
-          <Button
-            text="Like"
-            type={ButtonType.default}
-            icon={ButtonIcon.like}
-            counter={this.state.like}
-            onClick={this.handleLike}
-            title="Add like"
-          />
-          <Button
-            selected={this.state.fav}
-            type={ButtonType.transparent}
-            onClick={this.handleFav}
-            icon={ButtonIcon.fav}
-            title="Favourite"
-          />
-        </div>
-        <p className="card__desc">{this.props.description}</p>
-      </article>
-    );
-  }
+  return (
+    <article className={cardClass}>
+      <h3 className="card__title" title={props.title}>
+        {props.title}
+      </h3>
+      <img className="card__img" src={props.image} alt={props.title} />
+      <div className="card__buttons">
+        <Button
+          text="Like"
+          type={ButtonType.default}
+          icon={ButtonIcon.like}
+          counter={like}
+          onClick={handleLike}
+          title="Add like"
+        />
+        <Button
+          selected={fav}
+          type={ButtonType.transparent}
+          onClick={handleFav}
+          icon={ButtonIcon.fav}
+          title="Favourite"
+        />
+      </div>
+      <p className="card__desc">{props.description}</p>
+    </article>
+  );
 }
 
 export { Card };
