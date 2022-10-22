@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { FormPage } from '../Form';
 
@@ -11,7 +11,7 @@ describe('Testing FormPage component', () => {
     expect(screen.getByTestId('form-page')).toBeInTheDocument();
   });
 
-  it('adds user card', () => {
+  it('adds user card', async () => {
     render(<FormPage />);
 
     userEvent.type(screen.getByLabelText('Name'), 'John');
@@ -21,6 +21,6 @@ describe('Testing FormPage component', () => {
     userEvent.click(screen.getByTestId('agree-checkbox'));
     userEvent.click(screen.getByTestId('submit-button'));
 
-    expect(screen.queryByText(/Success: user created/i)).toBeInTheDocument();
+    await waitFor(() => expect(screen.queryByText(/Success: user created/i)).toBeInTheDocument());
   });
 });
