@@ -6,16 +6,14 @@ interface UserListProps {
   cards: UserCardProps[];
 }
 
-class UserList extends React.Component<UserListProps> {
-  render() {
-    return (
-      <div className="form-card-list" data-testid="user-list">
-        {this.props.cards.map((card, i) => (
-          <UserCard {...card} key={i} />
-        ))}
-      </div>
-    );
-  }
+function UserList(props: UserListProps) {
+  return (
+    <div className="form-card-list" data-testid="user-list">
+      {props.cards.map((card, i) => (
+        <UserCard {...card} key={i} />
+      ))}
+    </div>
+  );
 }
 
 export { UserList };
