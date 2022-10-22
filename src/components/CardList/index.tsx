@@ -8,18 +8,16 @@ interface CardsListProps {
   onShowMore: (id: string) => void;
 }
 
-class CardsList extends React.Component<CardsListProps> {
-  render() {
-    const photos = this.props.cards;
+function CardsList(props: CardsListProps) {
+  const photos = props.cards;
 
-    return (
-      <div className="card-list">
-        {photos.map((photo) => (
-          <FlickrCard {...photo} key={photo.id} onShowMore={this.props.onShowMore} />
-        ))}
-      </div>
-    );
-  }
+  return (
+    <div className="card-list">
+      {photos.map((photo) => (
+        <FlickrCard {...photo} key={photo.id} onShowMore={props.onShowMore} />
+      ))}
+    </div>
+  );
 }
 
 export { CardsList };
