@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+import { AppContext } from 'state';
+import { ActionType } from 'state/reducers';
 import { PageHeading } from 'components/PageHeading';
 import { CreateUserForm } from 'components/CreateUserForm';
 import { UserList } from 'components/UserList';
@@ -6,10 +8,11 @@ import { UserCardProps } from 'components/UserCard';
 import './Form.css';
 
 function FormPage() {
-  const [cards, setCards] = useState([] as UserCardProps[]);
+  const { state, dispatch } = useContext(AppContext);
+  const cards = state.userCards;
 
   function addFormCard(card: UserCardProps) {
-    setCards([...cards, card]);
+    dispatch({ type: ActionType.AddUserCard, payload: [card] });
   }
 
   return (
