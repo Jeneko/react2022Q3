@@ -5,10 +5,11 @@ import { MainPage } from 'pages/Main';
 import { AboutPage } from 'pages/About';
 import { FormPage } from 'pages/Form';
 import { NotFound } from 'pages/NotFound';
+import { AppProvider } from 'state';
 
 function App() {
   return (
-    <>
+    <AppProvider>
       <Routes>
         <Route path="/" element={<DefaultLayout />}>
           <Route index element={<MainPage />} />
@@ -18,7 +19,7 @@ function App() {
           <Route path="*" element={<Navigate to="404" replace />} />
         </Route>
       </Routes>
-    </>
+    </AppProvider>
   );
 }
 

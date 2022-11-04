@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { AppContext } from 'state';
+import { ActionType } from 'state/reducers';
 import { Spinner } from 'components/Spinner';
 import { CardsList } from 'components/CardList';
 import { PageHeading } from 'components/PageHeading';
@@ -8,7 +10,9 @@ import { FlickrFullInfo } from 'components/FlickrFullInfo';
 import { Modal } from 'components/Modal';
 
 function MainPage() {
-  const [photos, setPhotos] = useState([] as FlickrPhoto[]);
+  const { state, dispatch } = useContext(AppContext);
+  const photos = state.searchResult;
+
   const [showLoading, setShowLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [fullInfoPhotoId, setFullInfoPhotoId] = useState('');
@@ -18,16 +22,29 @@ function MainPage() {
     updatePhotos(search);
   }, []);
 
+  function setSearchRequest(searchRequest: string): void {
+    dispatch({ type: ActionType.SetSearchReq, payload: searchRequest });
+  }
+
+  function setSearchResults(photos: FlickrPhoto[]): void {
+    dispatch({ type: ActionType.SetSearchRes, payload: photos });
+  }
+
   async function updatePhotos(search: string): Promise<void> {
     if (!search) {
-      setPhotos([]);
+      setSearchResults([]);
       setShowLoading(false);
+      return;
+    }
+
+    if (state.searchRequest === search) {
       return;
     }
 
     setShowLoading(true);
     const curPhotos = await flickrPhotoSearch(search);
-    setPhotos(curPhotos);
+    setSearchResults(curPhotos);
+    setSearchRequest(search);
     setShowLoading(false);
   }
 
